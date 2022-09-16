@@ -12,6 +12,9 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
+// Connect Mongoose
+require('../utils/connectMongodb');
+
 var port = normalizePort(process.env.PORT || '6996');
 app.set('port', port);
 
