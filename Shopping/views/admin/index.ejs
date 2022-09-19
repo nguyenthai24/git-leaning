@@ -13,14 +13,17 @@
             crossorigin="anonymous"
         />
 
-        <title><%= title %></title>
+        <title>Hello, world!</title>
     </head>
     <body>
-        <%- messages('my_message_template', locals) %>
         <!-- header -->
-        <%- include('./layout/header.ejs') %>
-        <h1>HOME</h1>
+        <%- include('../layout/header.ejs') %>
 
+        <!-- Main -->
+        <%- include('./add_page.ejs') %>
+
+        <!-- footer -->
+        <p class="text-center">&COPY; CmsShoppingCart</p>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script

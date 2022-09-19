@@ -1,16 +1,18 @@
-const errorLogger = (err, req, res, next) => {
-    console.error('\x1b[31m', err); // adding some color to our logs
-    next(err); // calling next middleware
-};
+function logErrors(err, req, res, next) {
+    console.log(22);
+    console.error(err.stack);
+    next(err);
+}
 
-const errorResponder = (err, req, res, next) => {
-    console.log(2);
-    res.header('Content-Type', 'application/json');
-    res.status(err.statusCode).send(JSON.stringify(err, null, 4)); // pretty print
-};
-const invalidPathHandler = (req, res, next) => {
-    console.log(233);
-    res.redirect('/error');
-};
+function clientErrorHandler(err, req, res, next) {
+    if (req.xhr) {
+        res.status(500).send({ error: 'Something failed!' });
+    } else {
+        next(err);
+    }
+}
+function errorHandler(err, req, res, next) {
+    res.status(500).json(err);
+}
 
-module.exports = { errorLogger, errorResponder, invalidPathHandler };
+module.exports = { logErrors, clientErrorHandler, errorHandler };
