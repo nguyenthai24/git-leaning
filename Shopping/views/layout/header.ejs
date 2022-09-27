@@ -20,6 +20,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/pages">Pages</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/category">Categorys</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/product">Products</a>
+            </li>
         </ul>
     </div>
 </nav>
+
+<%- messages('messages'), locals %> 
+
+<% if(errors) { %>
+    <% errors.forEach((error) => {%>
+        <div class="alert alert-danger" role="alert">
+            <%= error.msg %>
+        </div>
+    <% })%>
+<% } %>

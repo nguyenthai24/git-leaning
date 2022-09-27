@@ -1,9 +1,10 @@
 <div class="container">
-    <h2 class="page-title">Add a page</h2>
+    <h2 class="page-title">Edit a page</h2>
     <a href="/admin/pages" class="btn btn-primary">Back to all pages</a>
     <br />
 
-    <form method="post" action="/admin/pages/add-page">
+    <form method="post" action="/admin/pages/edit-page">
+        <input type="hidden" name="id" value="<%= page._id %>">
         <div class="form-group">
             <label class="form-label" for="">Title</label>
             <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title" />
@@ -12,7 +13,7 @@
             <label class="form-label" for="">Slug</label>
             <input type="text" class="form-control" name="slug" value="<%= slug %>" placeholder="Slug" />
         </div>
-        <div id="editor" class="form-group">
+        <div class="form-group">
             <label class="form-label" for="">Content</label>
             <textarea name="content" class="form-control" id="" cols="30" rows="10">
                 <%= content %>

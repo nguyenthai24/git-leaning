@@ -1,0 +1,10 @@
+
+POST http://localhost:6996/user/register
+content-type: application/json
+
+{
+    "email": "nguyenthai6798@gmail.com"
+}
+
+###
+GET  http://localhost:6996/user

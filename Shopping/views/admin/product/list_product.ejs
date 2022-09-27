@@ -1,0 +1,51 @@
+<div class="container">
+    <h2 class="page-title mb-1">Products</h2>
+    <a href="/admin/pages/add-page" class="btn btn-primary">Add a new product</a>
+    <% if(typeof products !== 'undefined' && products.length > 0) { %>
+        <table class="table table-striped">
+            <thead>
+                <tr class="home">
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Product Image</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody id="sortable">
+                    <% products.forEach((product) => { %>
+                        <tr>
+                            <td><%= product.title %></td>
+                            <td><%= parseFloat(product.price).toFixed(2)%></td>
+                            <td><%= product.category %></td>
+                            <td>
+                                <%if(product.image == '') {%>
+                                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fnone&psig=AOvVaw1gEfn8IzoUUOtWKGmE1zVR&ust=1663904798043000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMCtn8S-p_oCFQAAAAAdAAAAABAE" alt="">
+                                <% } else { %>
+                                    <img width="100px" height="100px" src="<%=product.image%>" alt="">
+                                <% } %>
+                            </td>
+                            <td><%= product.desc %></td>
+                            <td><a href="/admin/product/edit-product/<%= product.slug %>">Edit</a></td>
+                            <td><a href="/admin/product/delete-product/<%= product._id %>">Delete</a></td>
+                            
+                        </tr>
+                    <%})%>
+            </tbody>
+        </table>
+    <% } else { %>
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1 class="h1">There are no products</h1>
+            </div>
+          </div>
+        
+    <% } %> 
+</div>
+
+<script>
+
+</script>

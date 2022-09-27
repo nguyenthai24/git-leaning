@@ -1,13 +1,12 @@
 const { ErrorHandler } = require('../../controllers/error/error');
 
 module.exports = async (req, res, next) => {
-    const title = '';
-    const slug = '';
-    const content = '';
+    let commonData = res.locals.getCommonData;
+    
+    commonData = {
+        ...commonData,
+        contentApp: 'add_page.ejs'
+    }
 
-    res.render('admin/index', {
-        title,
-        slug,
-        content,
-    });
+    return res.render('admin/index', commonData);
 };

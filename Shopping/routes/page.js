@@ -5,9 +5,8 @@ const { ErrorHandler } = require('../controllers/error/error');
 
 // Get pages index
 router.get('/', (req, res, next) => {
-    res.render('index', {
-        title: 'Home',
-    });
+    const commonData = res.locals.getCommonData;
+    res.render('index', commonData);
 });
 
 module.exports = router;

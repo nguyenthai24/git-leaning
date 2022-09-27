@@ -1,9 +1,9 @@
 <div class="container">
-    <h2 class="page-title">Add a page</h2>
-    <a href="/admin/pages" class="btn btn-primary">Back to all pages</a>
+    <h2 class="page-title">Add a category</h2>
+    <a href="/admin/category" class="btn btn-primary">Back to all category</a>
     <br />
 
-    <form method="post" action="/admin/pages/add-page">
+    <form method="post" action="/admin/pages/add-category">
         <div class="form-group">
             <label class="form-label" for="">Title</label>
             <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title" />
@@ -11,12 +11,6 @@
         <div class="form-group">
             <label class="form-label" for="">Slug</label>
             <input type="text" class="form-control" name="slug" value="<%= slug %>" placeholder="Slug" />
-        </div>
-        <div id="editor" class="form-group">
-            <label class="form-label" for="">Content</label>
-            <textarea name="content" class="form-control" id="" cols="30" rows="10">
-                <%= content %>
-            </textarea>
         </div>
 
         <button class="btn btn-default">Submit</button>

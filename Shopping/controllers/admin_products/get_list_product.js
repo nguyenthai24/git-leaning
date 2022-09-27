@@ -1,13 +1,15 @@
 const { ErrorHandler } = require('../../controllers/error/error');
-const PageModel = require('../../models/page');
+const ProductModel = require('../../models/product');
 
 module.exports = async (req, res, next) => {
     let commonData = res.locals.getCommonData;
-    const pages = await PageModel.findItemsByQuery({});
+
+    const products = await ProductModel.findItemsByQuery({});
+    console.log(products)
     commonData = {
         ...commonData,
-        pages: pages,
-        contentApp: 'page.ejs'
+        products: products,
+        contentApp: 'product/list_product.ejs'
     }
 
     return res.render('admin/index', commonData);

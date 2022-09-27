@@ -41,9 +41,10 @@ const router = require('./routes');
 app.use(router);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    next(createError(404));
-});
+// app.use(function (req, res, next) {
+//     next(createError(404));
+// });
+
 
 const { logErrors, clientErrorHandler, errorHandler } = require('./middleware/handlerError');
 app.use(logErrors);

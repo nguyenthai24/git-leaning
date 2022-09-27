@@ -1,0 +1,34 @@
+<div class="container">
+    <h2 class="page-title mb-2">Cateogory</h2>
+    <a href="/admin/category/add-category" class="btn btn-primary">Add a new category</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr class="home">
+                <th>Tilte</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody id="sortable">
+            <% categorys.forEach((category) => { %>
+                <tr id="id_<%=category._id%>" class="<%=category.slug%>">
+                    <td><%= category.title %></td>
+                    <td><a href="/admin/category/edit-category/<%= category.slug %>">Edit</a></td>
+
+                    <%if(category.slug == "home") { %>
+                        <td></td>
+                    <% } else { %>
+                        <td><a href="/admin/category/delete-category/<%= category._id %>">Delete</a></td>
+                    <% } %>
+                    
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+</script>
